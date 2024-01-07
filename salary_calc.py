@@ -1,12 +1,4 @@
-tax_table_2023 = {0:[0,30_000],
-                  .10:[30_000,45_000],
-                  .15:[45_000,60_000],
-                  .20:[60_000,200_000],
-                  .225:[200_000,400_000],
-                  .25:[400_000,]}
-
-social_insurance_frame_2023 = [1700,10900]
-social_insurance_frame_2000 = [1000,7000]
+from salary_law import tax_table_2023,social_insurance_frame_2023
 
 def calc_tax(n):
     tax = 0
@@ -22,8 +14,7 @@ def calc_tax(n):
             break
     if n > 0:
         tax = tax +(keys[-1]*n)
-        
-        
+                
     return tax
 
 def calc_si(n, salary_frame:list, employee_owner_share= [0.11,0.1875]):
@@ -49,3 +40,5 @@ def calc_si(n, salary_frame:list, employee_owner_share= [0.11,0.1875]):
 
 
         
+calc_tax(7000)
+calc_si(7000,social_insurance_frame_2023)
