@@ -37,8 +37,3 @@ def calc_si(n, salary_frame:list, employee_owner_share= [0.11,0.1875]):
         
     return employee_share, owner_share
 
-
-
-        
-calc_tax(7000)
-calc_si(7000,social_insurance_frame_2023)
