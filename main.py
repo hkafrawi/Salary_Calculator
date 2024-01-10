@@ -1,22 +1,20 @@
 import tkinter as tk
 from tkinter import ttk
 import tkinter.font as font
-from salary_calc import calc_tax,calc_si
-from salary_law import social_insurance_frame_2023
+from salary_calc import salary_breakdown
+
 
 def run_button():
     a = float(gross_salary_input.get())
     gross_salary_value.set(f"{a:,.2f}")
     
-    x = calc_si(a,social_insurance_frame_2023)[0]
-    si_value.set(f"{x:,.2f}")
+    gross_salary,employee_shr,owner_shr,taxes,net_salary = salary_breakdown(a)
     
-    salary_after_si = a-x
-    y=calc_tax(salary_after_si)
-    taxes_value.set(f"{y:,.2f}")
+    si_value.set(f"{employee_shr:,.2f}")
     
-    salary_after_taxes = salary_after_si-y
-    net_salary_value.set(f"{salary_after_taxes:,.2f}")
+    taxes_value.set(f"{taxes:,.2f}")
+    
+    net_salary_value.set(f"{net_salary:,.2f}")
     
 
 
