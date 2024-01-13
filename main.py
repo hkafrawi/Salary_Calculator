@@ -13,10 +13,10 @@ class SalaryCalc(tk.Tk):
         container.grid()
         container.columnconfigure(0, weight=1)
         
-        gross_salary = GrossSalary(container)
+        gross_salary = GrossSalary(container, lambda: self.show_frame(NetSalary))
         gross_salary.grid(row=0,column=0,sticky="NESW")
         
-        net_salary = NetSalary(container)
+        net_salary = NetSalary(container, lambda: self.show_frame(GrossSalary))
         net_salary.grid(row=0,column=0,sticky="NESW")
         
         self.frames = dict()

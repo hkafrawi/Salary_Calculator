@@ -3,7 +3,7 @@ from tkinter import ttk
 from calc import salary_breakdown
 
 class GrossSalary(ttk.Frame):
-    def __init__(self,parent):
+    def __init__(self,parent,change_page_func):
         super().__init__(parent)
         
         self.gross_salary_input = tk.StringVar()
@@ -31,6 +31,8 @@ class GrossSalary(ttk.Frame):
         
         calc_button = ttk.Button(self, text="Run", command=self.run_button)
         
+        chg_button = ttk.Button(self,text="Change Input", command=change_page_func)
+        
         # Grid Setup
         input_label.grid(column=0,row=0,sticky="W")
         user_input.grid(column=1,row=0,sticky="W")
@@ -47,6 +49,7 @@ class GrossSalary(ttk.Frame):
         net_salary_label.grid(column=0,row=4,sticky="W")
         net_salary_display.grid(column=1,row=4,sticky="E")
         calc_button.grid(column=1,row=5,sticky="E")
+        chg_button.grid(column=0,row=5,sticky="E")
         
     def run_button(self):
         a = float(self.gross_salary_input.get())
