@@ -9,6 +9,8 @@ class SalaryCalc(tk.Tk):
         
         self.title("Salary Calculator")
         
+        font.nametofont("TkDefaultFont").configure(size=15)
+        
         container = ttk.Frame(self)
         container.grid()
         container.columnconfigure(0, weight=1)

@@ -6,12 +6,13 @@
 
 2) clone the repo to your local computer.
 
-3) run ~python3~ main.py from the directory you cloned the repo.
+3) run python3 main.py from the directory you cloned the repo.
 
 4) Know your salary breakdown
 
 ## V2
 ![Version 2.0](/src/v2.png)
+
 Now you can enter your net salary(paid) and it will generate the closest Gross Salary breakdown. 
 
 ## V1
