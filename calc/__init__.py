@@ -1,2 +1,2 @@
-from calc.salary_calc import salary_breakdown
+from calc.salary_calc import salary_breakdown,find_gross_salary
 import calc.salary_law
