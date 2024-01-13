@@ -23,7 +23,7 @@ class SalaryCalc(tk.Tk):
         self.frames[GrossSalary] = gross_salary
         self.frames[NetSalary] = net_salary
         
-        self.show_frame(NetSalary)
+        self.show_frame(GrossSalary)
         
     def show_frame(self,container):
         frame = self.frames[container]
