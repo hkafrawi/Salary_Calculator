@@ -1,4 +1,4 @@
-from salary_law import tax_table_2023,social_insurance_frame_2023
+from calc.salary_law import tax_table_2023,social_insurance_frame_2023
 import numpy as np
 
 def calc_tax(n):
