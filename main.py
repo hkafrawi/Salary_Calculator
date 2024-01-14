@@ -12,14 +12,14 @@ class SalaryCalc(tk.Tk):
         font.nametofont("TkDefaultFont").configure(size=15)
         
         container = ttk.Frame(self)
-        container.grid()
-        container.columnconfigure(0, weight=1)
+        container.pack(expand=True)
+        #container.columnconfigure(0, weight=1)
         
         gross_salary = GrossSalary(container, lambda: self.show_frame(NetSalary))
-        gross_salary.grid(row=0,column=0,sticky="NESW")
+        gross_salary.grid(row=0,column=0,sticky="nsew")
         
         net_salary = NetSalary(container, lambda: self.show_frame(GrossSalary))
-        net_salary.grid(row=0,column=0,sticky="NESW")
+        net_salary.grid(row=0,column=0,sticky="nsew")
         
         self.frames = dict()
         self.frames[GrossSalary] = gross_salary

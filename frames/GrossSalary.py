@@ -14,26 +14,30 @@ class GrossSalary(ttk.Frame):
         self.net_salary_value = tk.StringVar()
         
         # Items Setup
-        input_label = ttk.Label(self, text="Enter your Gross Salary:")
-        user_input = ttk.Entry(self, width=10, textvariable=self.gross_salary_input, font=("Segoe UI",15))
+        buttons_frame = tk.Frame(self)
+        items_frame = tk.Frame(self)
         
-        gross_salary_label = ttk.Label(self, text="Gross Salary:")
-        gross_salary_display = ttk.Label(self, textvariable=self.gross_salary_value)
+        input_label = ttk.Label(items_frame, text="Enter your Gross Salary:")
+        user_input = ttk.Entry(items_frame, width=10, textvariable=self.gross_salary_input, font=("Segoe UI",15))
+        
+        gross_salary_label = ttk.Label(items_frame, text="Gross Salary:")
+        gross_salary_display = ttk.Label(items_frame, textvariable=self.gross_salary_value)
             
-        si_label = ttk.Label(self, text="Social Insurance :")
-        si_output = ttk.Label(self,textvariable=self.si_value)
+        si_label = ttk.Label(items_frame, text="Social Insurance :")
+        si_output = ttk.Label(items_frame,textvariable=self.si_value)
         
-        taxes_label = ttk.Label(self, text="Taxes:")
-        taxes_display = ttk.Label(self, textvariable=self.taxes_value)
+        taxes_label = ttk.Label(items_frame, text="Taxes:")
+        taxes_display = ttk.Label(items_frame, textvariable=self.taxes_value)
         
-        net_salary_label = ttk.Label(self, text="Net Salary:")
-        net_salary_display = ttk.Label(self, textvariable=self.net_salary_value)
+        net_salary_label = ttk.Label(items_frame, text="Net Salary:")
+        net_salary_display = ttk.Label(items_frame, textvariable=self.net_salary_value)
         
-        calc_button = ttk.Button(self, text="Run", command=self.run_button)
+        calc_button = ttk.Button(buttons_frame, text="Calculate", command=self.run_button)
         
-        chg_button = ttk.Button(self,text="Change Input", command=change_page_func)
+        chg_button = ttk.Button(buttons_frame,text="Change Input", command=change_page_func)
         
         # Grid Setup
+        items_frame.grid(column=0,row=0,sticky="nsew")
         input_label.grid(column=0,row=0,sticky="W")
         user_input.grid(column=1,row=0,sticky="W")
         
@@ -48,8 +52,10 @@ class GrossSalary(ttk.Frame):
         
         net_salary_label.grid(column=0,row=4,sticky="W")
         net_salary_display.grid(column=1,row=4,sticky="E")
-        calc_button.grid(column=1,row=5,sticky="E")
-        chg_button.grid(column=0,row=5,sticky="E")
+        
+        buttons_frame.grid(column=1,row=0,sticky="nsew")
+        calc_button.pack(side="top",fill='both',anchor='center',expand=True)
+        chg_button.pack(side="top",fill='both',anchor='center',expand=True)
         
     def run_button(self):
         a = float(self.gross_salary_input.get())
