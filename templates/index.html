@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Breakdown Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Salary Breakdown Calculator</h1>
+        <form id="salaryForm">
+            <label for="salaryInput">Enter Salary:</label>
+            <input type="number" id="salaryInput" step="0.01" required>
+            <button type="button" onclick="runSalaryFunction()">Run</button>
+        </form>
+        
+        <div id="resultContainer">
+            <h2>Result:</h2>
+            <p id="grossSalary">Gross Salary: </p>
+            <p id="employeeShare">Employee Share: </p>
+            <p id="ownerShare">Owner Share: </p>
+            <p id="taxes">Taxes: </p>
+            <p id="netSalary">Net Salary: </p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
