@@ -7,6 +7,10 @@ app = Flask(__name__, static_folder='static')
 def index():
     return render_template('index.html')
 
+@app.route('/net_salary_simulator')
+def net_salary_simulator():
+    return render_template('net_salary_simulator.html')
+
 @app.route('/calculate-salary', methods=['POST'])
 def calculate_salary():
     try:

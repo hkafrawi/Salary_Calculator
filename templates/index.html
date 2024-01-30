@@ -24,8 +24,15 @@
             <p id="taxes">Taxes: </p>
             <p id="netSalary">Net Salary: </p>
         </div>
+        <button type="button" onclick="navigateToNetSalarySimulator()">Go to Net Salary Simulator</button>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        function navigateToNetSalarySimulator() {
+            // Redirect to the "net_salary_simulator" page
+            window.location.href = '/net_salary_simulator';
+        }
+    </script>
 </body>
 </html>
