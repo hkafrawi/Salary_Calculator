@@ -7,15 +7,7 @@ function runSalaryFunction() {
 // New function for the "Net Salary Simulator" page
 function runNetSalaryFunction() {
     const netSalaryInput = document.getElementById('netSalaryInput').value;
-    const grossSalary = find_gross_salary(netSalaryInput);
-    makeAjaxRequest('/calculate-salary', grossSalary, displayNetSalaryResults);
-}
-
-// Function to simulate calculating gross salary based on net salary
-function find_gross_salary(netSalary) {
-    // Replace this with your logic to calculate gross salary based on net salary
-    // For now, let's assume a simple calculation (gross = net + 100)
-    return parseFloat(netSalary) + 100;
+    makeAjaxRequest('/net-salary', netSalaryInput, displayResults);
 }
 
 // Common function to make AJAX requests
@@ -34,7 +26,7 @@ function makeAjaxRequest(url, data, callback) {
     });
 }
 
-// Callback function to display results on the original page
+// Callback function to display results
 function displayResults(data) {
     if (data.error) {
         console.error('Error:', data.error);
@@ -47,15 +39,13 @@ function displayResults(data) {
     }
 }
 
-// Callback function to display results on the "Net Salary Simulator" page
-function displayNetSalaryResults(data) {
-    if (data.error) {
-        console.error('Error:', data.error);
-    } else {
-        document.getElementById('netGrossSalary').innerText = `Gross Salary: ${data[0].toFixed(2)}`;
-        document.getElementById('netEmployeeShare').innerText = `Employee Share: ${data[1].toFixed(2)}`;
-        document.getElementById('netOwnerShare').innerText = `Owner Share: ${data[2].toFixed(2)}`;
-        document.getElementById('netTaxes').innerText = `Taxes: ${data[3].toFixed(2)}`;
-        document.getElementById('netNetSalary').innerText = `Net Salary: ${data[4].toFixed(2)}`;
-    }
+
+function navigateToNetSalarySimulator() {
+    // Redirect to the "net_salary_simulator" page
+    window.location.href = '/net_salary_simulator';
+}
+
+function navigateToIndex() {
+    // Redirect to the "index" page
+    window.location.href = '/';
 }
